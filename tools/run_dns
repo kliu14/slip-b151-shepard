@@ -1,0 +1,5 @@
+printf "\n\n \\\\\\\\\\\     Run Main Program...      \\\\\\\\\\\ \n\n\n "
+cd ..
+sbatch ./tools/DNS_slurm.sh
+printf "\n\n \\\\\\\\\\\     ...Job number above      \\\\\\\\\\\ \n\n\n "
+

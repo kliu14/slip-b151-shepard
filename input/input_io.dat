@@ -1,0 +1,71 @@
+1001                      ! input version         		  
+                          ! ------------------1. NUMBER OF PROCESSORS -------------------------------
+16                        ! p1 
+12                        ! p3
+                          ! ------------------2. GRID NUMBER/CHANNEL SIZE/REYNOLDS NUMBER ------------
+192                       ! n1, Streamwise grid points
+128                       ! n2, Wall normal grid points
+192                       ! n3, Spanwise grid points
+2.0d0                     ! Length of domain, streamwise * pi
+1.0d0                     ! Length of domain, spanwise   * pi
+197.5d0                   ! Reynolds number, Re_tau = u_tau * delta / delta_nu
+                          ! ------------------3. RESTART FLAGS --------------------------------------
+T                         ! T:Restart from restart file without interface information, F: Restart from initial condition 
+F                         ! T:Restart from collapsed restart and interpolate
+0.0d0                     ! Initial time of restart file
+                          ! ------------------4. OUTPUT FLAGS ---------------------------------------
+T                         ! Debugger:  T = on,  F = off
+T                         ! T:Output statistics
+T                         ! T:Output 3-D flow field snapshots 
+F                         ! T:Output 2-D interface information 
+F                         ! T:Output 3-D isovortices snapshots 
+F                         ! T:Output 2-D vortices snapshots 
+                          ! ------------------5. TIME STEPPING -------------------------------------
+1                         ! Time stepping method, 1:AB2/CN , 2:RK3/CN , 3:AB2 only
+F                         ! T: Use cfl condition, F: Use fixed time step
+2.0d-04                  ! Time step, eddy turnover
+0.25d0                    ! CFL number 
+                          ! ------------------6. JOB CONTROL ---------------------------------------
+5000000                   ! Number of time steps, Nt
+1000                      ! Number of steps between dumping restart files 
+10000000                  ! Number of steps between statistics sampling
+10000000                  ! Number of steps between dumping interface/vortex info
+0.0d0                     ! Time to start collecting statistics - eddy turnover 
+250.0d0                   ! Time to finish the simulation - eddy turnover
+1                         ! Time interval to output flow field - eddy turnover
+200                       ! Time interval to output flow field below point - eddy turnover * 0.001
+                          ! ------------------7. PRESSURE SOLVER -----------------------------------
+0                         ! Poisson type, 0:FFT <HYPRE> 3:HYBRYD 5:GMRES-AMG 6:BiCG-AMG 
+3                         ! Preconditioner type <HYPRE_Struct>  1: PFMG   2: SMG   3: Diagonal   4: None
+2                         ! Poisson solver order 
+                          ! ------------------8. WALL NORMAL GRID ----------------------------------
+3                         ! Grid type, 1:Uniform, 2:Cosine,3:Hyperbolic tangent 
+2.0d0                     ! Stretching param for 3:hyp tan 
+F                         ! T:Load grid from file
+                          ! ------------------9. IMFM SETUP ----------------------------------------
+T                         ! Generalized NS equations governing transportee velocity: T = on, F = off
+T                         ! IMFM: T = on, F = off
+1021                      ! Initial condition and forcing direction control (10** = N1_ji**)
+0                         ! Boundary condition control
+T                         ! Match transporter and transportee BCs: T = on, F = off (no slip)
+F                         ! Brute force
+1                         ! Brute force, step function location (1~Ny-1) set ICswitch=0
+                          ! -----------------10. WALL VELOCITY BC ---------------------------------
+F                         ! Wall velocity BC: T = on, F = off
+0.0d0                     ! Center of wall oscillations
+0.0d0                     ! Delta of wall oscillations
+100.0d0                   ! Period of oscillations
+                          ! -----------------11. SLIP VELOCITY BC ---------------------------------
+T                         ! Slip velocity BC: T = on, F = off
+15.1d0                    ! Center of slip oscillations
+0.0d0                     ! Delta of slip oscillations
+100.0d0                   ! Period of slip oscillations (do NOT set to zero)
+                          ! -----------------12. PATTERNED NO SHEAR BC ----------------------------
+F                         ! Patterned velocity BC: T = on, F = off
+8                         ! Post width in x
+16                        ! Bubble width in x
+0                         ! Post start index in x
+12                        ! Post width in z
+24                        ! Bubble width in z
+0                         ! Post start index in z
+

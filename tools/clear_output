@@ -1,0 +1,13 @@
+
+
+printf "\n Clear starts \n\n"
+
+cd ../
+rm output/mean_profile/*.dat
+rm output/flow_field/*.dat
+rm output/flow_field_transportee/*.dat
+rm *.out *.err
+
+printf "\n Clear ends \n\n"
+
+

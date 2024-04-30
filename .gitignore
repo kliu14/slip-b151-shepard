@@ -1,0 +1,20 @@
+# Ignore large data output
+*.mod
+*.dat
+*.in
+
+# Ignore object/compiled files
+*.o
+bin/channel
+
+# Ignore output files
+*.log
+*.out
+*.err
+*.png
+*.npz
+*.csv
+diagnostics.dat
+
+# Exceptions
+!input/input_io.dat
